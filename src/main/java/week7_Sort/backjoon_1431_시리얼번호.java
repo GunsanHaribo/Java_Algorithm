@@ -20,6 +20,8 @@ public class backjoon_1431_시리얼번호 implements Comparator<String>{
             input_data = br.readLine();
         }
 
+
+
     }
 
     public int compare(String o1, String o2){
