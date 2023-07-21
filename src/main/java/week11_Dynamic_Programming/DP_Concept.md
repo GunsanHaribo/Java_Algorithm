@@ -51,7 +51,7 @@ Memoization을 사용한 피보나치 수열
 - [BOJ 1463 1로 만들기](https://www.acmicpc.net/problem/1463)
 
 <details>
-<summary>- 풀이</summary>
+<summary>풀이</summary>
 <div markdown="1">       
 
 
@@ -69,9 +69,11 @@ Memoization을 사용한 피보나치 수열
 ## 2번
 
 - [BOJ 9095 1, 2, 3 더하기](https://www.acmicpc.net/problem/9095)
+
 <details>
-<summary>- 풀이</summary>
-<div markdown="1">       
+<summary> 풀이</summary>
+<div markdown="1">  
+    
     1. 테이블 정의: `d[i]`는 i를 1, 2, 3의 합으로 나타내는 방법의 수
     2. 점화식 세우기: `d[k] = d[k - 1] + d[k - 2] + d[k - 3]`
     3. 초기값 설정: `d[1] = 1, d[2] = 2, d[3] = 4`
@@ -85,13 +87,15 @@ Memoization을 사용한 피보나치 수열
 - [BOJ 2579 계단 오르기](https://www.acmicpc.net/problem/2579)
 
 <details>
-<summary>- 풀이</summary>
+<summary>풀이</summary>
 <div markdown="1">       
+    
     1. 테이블 정의: `d[i][j]`는 i번째 계단을 j번 연속한 상태로 밟았을 때 점수의 최댓값
     2. 점화식 세우기
         1. `d[k][1] = max(d[k - 2][1], d[k - 2][2]) + s[k]`
         2. `d[k][2] = d[k - 1][1] + s[k]`
     3. 초기값 설정: `d[1][1] = s[1], d[1][2] = 0, d[2][1] = s[2], d[2][2] = s[1] + s[2]`
+    
 
 </div>
 </details>
