@@ -32,6 +32,16 @@
 - Unstable
 - Non-adaptive
 
+<details>
+<summary>자바코드</summary>
+<div markdown="1">       
+
+😎숨겨진 내용😎
+
+</div>
+</details>
+
+
 # 2. Bubble sort
 
 # 3. Insertion sort
