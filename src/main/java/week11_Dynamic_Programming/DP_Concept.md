@@ -30,7 +30,7 @@ Optimal Substructure
 - Top-down 방식으로, 재귀 함수 형태의 DP에서 사용함
 - 동일한 계산을 반복해야할 때, 이전에 계산한 값을 메모리에 저장함으로써 동일한 계산의 반복을 제거하여 프로그램 실행 속도를 빠르게 하는 방식
 
-![Memoization을 사용한 피보나치 수열](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a486d99-bd64-44b6-82fd-9020f02f47d7/Untitled.png)
+![스크린샷 2023-07-21 오후 5 49 45](https://github.com/GunsanHaribo/Java_Algorithm/assets/119919849/52ccaba7-2f35-44df-85e1-d1c3de6c99dd)
 
 Memoization을 사용한 피보나치 수열
 
