@@ -6,7 +6,9 @@
 | Adaptability (순응성) | Adaptive | Non-adaptive|
 | 데이터의 크기 | Internal | External|
 
-#1. Selection sort
+
+
+# 1. Selection sort
 
 ### 동작
 
