@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Basic_Insertion_Sort {
     //두번쨰부터 앞에꺼랑 그 사이꺼랑 비교하면서 넣는다
     public static void main(String[] args) {
-        int[] array = {31, 25, 12, 22, 11};
+        int[] array = {11, 12, 31, 25, 12, 22, 11};
 
         // 두번째꺼 부터 앞에꺼랑 이제 비교하면서 어디에 들어갈지 찾는다?
         // 앞에꺼보다 크고 뒤에꺼보다 작다 그러면 그 사이에 삽입 인덱스는 뒤로 미룬다
