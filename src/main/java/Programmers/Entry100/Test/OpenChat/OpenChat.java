@@ -2,7 +2,7 @@ package Programmers.Entry100.Test.OpenChat;
 
 import java.util.*;
 
-import static org.example.Test.OpenChat.repository.create_repository;
+
 
 // 정적 팩토리 메서드 써보기
 
