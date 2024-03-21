@@ -1,4 +1,4 @@
-package Programmers.A_Array.A;
+package Programmers.A_Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;

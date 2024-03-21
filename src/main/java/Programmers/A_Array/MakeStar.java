@@ -1,4 +1,4 @@
-package Programmers.A_Array.A;
+package Programmers.A_Array;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
