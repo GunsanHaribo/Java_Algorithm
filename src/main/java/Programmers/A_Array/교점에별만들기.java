@@ -1,14 +1,9 @@
 package Programmers.A_Array;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class MakeStar {
+public class 교점에별만들기 {
 
 
     public static void main(String[] args) {

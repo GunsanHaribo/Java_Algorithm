@@ -43,7 +43,7 @@ public class 삼각달팽이 {
                 // 리스트가 터질 수도 있다는걸 인지
                 // 둘중 하나가 F면 F
 
-                System.out.println("우측루프");  //djeltj
+                System.out.println("우측루프");
                 System.out.println(y+" "+ x);
                 y += dy[1];
                 x += dx[1];
@@ -52,17 +52,15 @@ public class 삼각달팽이 {
                 //아근데 왜 1,1에서 2,1로 가야되는데 왜 1,0이 나오지?? 이유가 뭐지??
 
                 // break을 하면안되나? 밑으로 가야되는데 ?  10이 안된다
-                if(result[y][x] != 0){
+                if( x>=m || y>=m || result[y][x] != 0){
+                    y -= dy[1];
+                    x -= dx[1];
                     break;
+                }else{
+                    System.out.println("count" + count);
+                    result[y][x] = count++;
                 }
                  // 통과하면 +1 해주는건데 4,0 일때 막히 잖아
-                System.out.println("count" + count);
-                // 4, 0 나와서 터지는건데 이걸 어떻게 고치지?
-                // 3이 넘어가야되는데 어떻게 넘기지 count를 안하면서?
-                result[y][x] = count++;
-                if(x ==m-1 || y ==m-1){
-                    break;
-                }
 
             }
             if(memory == count) break;
@@ -76,17 +74,18 @@ public class 삼각달팽이 {
                 x += dx[3];
                 // 아니 이러면 당연히 0이 안나오 잖아
 
-                if(result[y][x] != 0){
+                if(x>=m || y>=m || result[y][x] != 0){
+                    y -= dy[3];
+                    x -= dx[3];
                     break;
-                }
-                System.out.println(y+" "+ x);
+                }else{
+                    System.out.println(y+" "+ x);
 
-                result[y][x] = count++;
-                System.out.println(count);
-
-                if(x ==m-1  || y >= m){
-                    break;
+                    result[y][x] = count++;
+                    System.out.println(count);
                 }
+
+
             }
             if(memory == count) break;
 
@@ -97,23 +96,23 @@ public class 삼각달팽이 {
                 System.out.println("상좌이동 루프");
                 x +=dx[0]+dx[2];
                 y +=dy[0]+dy[2];
-                //증가의 범위가 있는데 그거 넘으면 그냥 break되는걸로 아니면 그때 더해주고
 
-                if(result[y][x] != 0){
+                //롤백
+                if(x>=m || y>=m || result[y][x] != 0){
+                    x -= (dx[0]+dx[2]);
+                    y -= (dy[0]+dy[2]);
                     break;
+                }else{
+                    // 통과하면 +1 해주는건데 4,0 일때 막히 잖아
+                    System.out.println(y+" "+ x);
+                    System.out.println("count" + count);
+                    // 4, 0 나와서 터지는건데 이걸 어떻게 고치지?
+                    // 3이 넘어가야되는데 어떻게 넘기지 count를 안하면서?
+                    result[y][x] = count++;
                 }
-                // 통과하면 +1 해주는건데 4,0 일때 막히 잖아
-                System.out.println(y+" "+ x);
-                System.out.println("count" + count);
-                // 4, 0 나와서 터지는건데 이걸 어떻게 고치지?
-                // 3이 넘어가야되는데 어떻게 넘기지 count를 안하면서?
-                result[y][x] = count++;
+
                 // 여기서 break 안거니깐 y,x가 0, 0이 된다
 
-                if(x ==1 || y ==1){
-                    break;
-                }
-                // 여기도 처음으로 넘겨 주는게 문제네 //  루프를 돌면서 x,y을 어떻게 넘겨주지??
             }
             if(memory == count) break;
         }
