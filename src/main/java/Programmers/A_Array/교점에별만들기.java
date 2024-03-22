@@ -2,9 +2,12 @@ package Programmers.A_Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Math.abs;
+
+
 
 public class 교점에별만들기 {
 
@@ -13,17 +16,17 @@ public class 교점에별만들기 {
         // 배열에 배열 넣어서 만든다
         int[][] lines = new int[5][5];
 
-//        lines[0] = new int[]{2, -1, 4};
-//        lines[1] = new int[]{-2, -1, 4};
-//        lines[2] = new int[]{0, -1, 1};
-//        lines[3] = new int[]{5, -8, -12};
-//        lines[4] = new int[]{5, 8, 12};
+        lines[0] = new int[]{2, -1, 4};
+        lines[1] = new int[]{-2, -1, 4};
+        lines[2] = new int[]{0, -1, 1};
+        lines[3] = new int[]{5, -8, -12};
+        lines[4] = new int[]{5, 8, 12};
 
         // 여기서 틀린다
-        lines[0] = new int[]{0, 1, -1};
-        lines[1] = new int[]{1, 0, -1};
-        lines[2] = new int[]{1, 0, 1};
-
+//        lines[0] = new int[]{0, 1, -1};
+//        lines[1] = new int[]{1, 0, -1};
+//        lines[2] = new int[]{1, 0, 1};
+//
 //        lines[0] = new int[]{1, -1, 0};
 //        lines[1] = new int[]{2, 1, 0};
         List<int[]> crossPoint = getCrossPoint(lines);
@@ -48,39 +51,61 @@ public class 교점에별만들기 {
         System.out.println(max);
 
         // 좌표 구성  //[*.*, ..., ...]
-        // 여기서 좌표 만들떄 범위를 좀.. 잘설정해야 되는데...다음 값이 없으면 좀 숫자르 날린다 던가...
+        // 여기서 좌표 만들떄 범위를 좀.. 잘설정해야 되는데...다음 값이 없으면 좀 숫자를 날린다 던가...
+
+
+        // 좌표 설정을 cross y,x의 범위로 설정하자
         String[][] result = new String[2*max+1][2*max+1]; // 전체 배열 초기화 해야되는데
-        //
+        //아마 max 1일때가 문제가 되는 듯한데 이게 좌표들은 다 맞는데 밑에 값들이 없으니깐
+        //출력을 안하는게 맞긴하다.. 출력을 안하는 기준을 세우기가 애매하네
 
         for(String[] st : result){
             Arrays.fill(st, ".");
         }
 
+        ArrayList<Integer> x_set = new ArrayList<>();
+        ArrayList<Integer> y_set = new ArrayList<>();
+
         for(int[] i : crossPoint){
             int trans_x = i[0]+ max;
-            int trans_y = max - i[1] ;
+            x_set.add(trans_x);
+            int trans_y = max - i[1];
+            y_set.add(trans_y);
             result[trans_y][trans_x] = "*";
         }
 
         System.out.println(Arrays.deepToString(result));
 
-        String[] finalResult = new String[result.length];
+
+
+
+        // 어레이 리스트에서 최솟값 찾는법
+        int min_x = Collections.min(x_set);
+        int max_x =Collections.max(x_set);
+
+        int min_y=Collections.min(y_set);
+        int max_y =Collections.max(y_set);
+
+        // y의 범위만 넣어준다
+        int interval_y = (max_y - min_y)+1;
+        String[] finalResult = new String[interval_y];
+        // 왜 안되지?
 
         StringBuilder sb;
-        for(int i  = 0; i< finalResult.length; i++){
+        for(int i  = min_y; i<= max_y; i++){
             sb = new StringBuilder();
-            for(int j = 0; j< finalResult.length; j++){
+            for(int j = min_x; j<= max_x; j++){
                 sb.append(result[i][j]);
             }
             finalResult[i] = sb.toString();
         }
 
         System.out.println(Arrays.deepToString(finalResult));
+        // 처음부터 자르지 말고 x,y 범위에 맞는 배열만 출력합니다
+//        [*.*, null, null]
+
 
     }
-    // fixNumericAmount
-
-
 
 
     // 함수를 만들어서 교점 추출 리스트반환
