@@ -26,92 +26,87 @@ public class 교점에별만들기 {
 //        lines[0] = new int[]{0, 1, -1};
 //        lines[1] = new int[]{1, 0, -1};
 //        lines[2] = new int[]{1, 0, 1};
-//
-//        lines[0] = new int[]{1, -1, 0};
+
+//        lines[0] = new int[]{1, -1, 0};  //
 //        lines[1] = new int[]{2, 1, 0};
-        List<int[]> crossPoint = getCrossPoint(lines);
+        List<List<Integer>> crossPoint = getCrossPoint(lines);
 
 //        System.out.println(Arrays.deepToString(crossPoint));
-        for(int[] i : crossPoint){
-            System.out.println("x좌표: " + i[0] + " y좌표: "+ i[1]);
+//        for(int[] i : crossPoint){
+//            System.out.println("x좌표: " + i[0] + " y좌표: "+ i[1]);
+//        }
+
+        for(int i= 0; i<crossPoint.get(0).size(); i++){
+            System.out.println("x좌표: " + crossPoint.get(0).get(i)+ " y좌표: "+ crossPoint.get(1).get(i));
         }
-        // 교점 구하기 완료
 
-        // fixNumericAmount
-        // 최대 좌표에서 나누기 2를 하고  x좌표 = x+ max, y좌표 =  max  - (y)
-        //이 max가 근데 절댓값 max인것 같은데;
-        int max = 0;
-        for(int[] i : crossPoint){
-            for(int j : i){
-                if(max < abs(j)){
-                    max = abs(j);
-                }
-            }
-        }
-        System.out.println(max);
+        // 여기서 왜 max를 왜 구하는거지?? 그냥 바로 가면 안되나??
+        // 여기서  최댓값을 한번에 구해야된다
+//        int max = 0;
+//        for(int[] i : crossPoint){
+//            for(int j : i){
+//                if(max < abs(j)){
+//                    max = abs(j);
+//                }
+//            }
+//        }
+//        System.out.println(max);
+        // 좌표 설정을 cross y,x의 범위로 설정하자 => 죄표 설정을  딱맞춰서 할 필요가있다
+        List<Integer> x_set = crossPoint.get(0);
+        List<Integer> y_set = crossPoint.get(1);
 
-        // 좌표 구성  //[*.*, ..., ...]
-        // 여기서 좌표 만들떄 범위를 좀.. 잘설정해야 되는데...다음 값이 없으면 좀 숫자를 날린다 던가...
+        // 이거 떄문에 그런가?
+        int min_x = Collections.min(x_set);
+        int max_x = Collections.max(x_set);
 
+        int min_y= Collections.min(y_set);
+        int max_y = Collections.max(y_set);
 
-        // 좌표 설정을 cross y,x의 범위로 설정하자
-        String[][] result = new String[2*max+1][2*max+1]; // 전체 배열 초기화 해야되는데
-        //아마 max 1일때가 문제가 되는 듯한데 이게 좌표들은 다 맞는데 밑에 값들이 없으니깐
-        //출력을 안하는게 맞긴하다.. 출력을 안하는 기준을 세우기가 애매하네
+        // 여기서 한번에 max 값을 해야되는데
+        int interval_x = (max_x - min_x)+1;
+        int interval_y =(max_y - min_y)+1;
 
+        // 이것도 이중배열말고 한번에 스트링으로
+        String[][] result = new String[interval_y][interval_x]; // 전체 배열 초기화 해야되는데
+
+        // 두번 도는것 같은데.. 이거 뭔데
         for(String[] st : result){
             Arrays.fill(st, ".");
         }
 
-        ArrayList<Integer> x_set = new ArrayList<>();
-        ArrayList<Integer> y_set = new ArrayList<>();
-
-        for(int[] i : crossPoint){
-            int trans_x = i[0]+ max;
-            x_set.add(trans_x);
-            int trans_y = max - i[1];
-            y_set.add(trans_y);
+        for(int  i =0; i< x_set.size(); i++){
+            int trans_x = x_set.get(i) + max_x;
+            int trans_y = max_y - y_set.get(i);
             result[trans_y][trans_x] = "*";
         }
 
         System.out.println(Arrays.deepToString(result));
 
-
-
-
-        // 어레이 리스트에서 최솟값 찾는법
-        int min_x = Collections.min(x_set);
-        int max_x =Collections.max(x_set);
-
-        int min_y=Collections.min(y_set);
-        int max_y =Collections.max(y_set);
-
-        // y의 범위만 넣어준다
-        int interval_y = (max_y - min_y)+1;
+//        // 이제 벼열을 하나의 좌표로 해서 보내야 되는데 이제 배열만 뽑아내면 된다
         String[] finalResult = new String[interval_y];
-        // 왜 안되지?
 
+        // 왜 안되지?
         StringBuilder sb;
-        for(int i  = min_y; i<= max_y; i++){
+        for(int i  = 0; i < interval_y; i++){
             sb = new StringBuilder();
-            for(int j = min_x; j<= max_x; j++){
+            for(int j = 0; j < interval_x; j++){
                 sb.append(result[i][j]);
             }
             finalResult[i] = sb.toString();
         }
 
         System.out.println(Arrays.deepToString(finalResult));
-        // 처음부터 자르지 말고 x,y 범위에 맞는 배열만 출력합니다
-//        [*.*, null, null]
-
-
+//        // 처음부터 자르지 말고 x,y 범위에 맞는 배열만 출력합니다
     }
 
 
-    // 함수를 만들어서 교점 추출 리스트반환
-    public static List<int[]>  getCrossPoint(int[][] lines){
+    // x, y로 쪼개서 반환 리스트로 반환
+    public static List<List<Integer>>  getCrossPoint(int[][] lines){
 
-        List<int[]> result = new ArrayList<>();
+        List<Integer> cross_X = new ArrayList<>();
+        List<Integer> cross_Y = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
+
 
         for(int nowline=0; nowline< lines.length-1; nowline++){
             for(int nextLine = nowline+1; nextLine < lines.length; nextLine++){
@@ -130,6 +125,8 @@ public class 교점에별만들기 {
 
                 float[] floatPoint  = new float[2];
                 int[] finalPoint = new int[2];
+
+
                 int x =0;
                 int y = 1;
                 if(low == 0){
@@ -139,18 +136,20 @@ public class 교점에별만들기 {
                     floatPoint[y] = y_top / low;
                     boolean checkInt = checkPointInt(floatPoint[x], floatPoint[y]);
                     if(checkInt){
-                        finalPoint[x] = (int) floatPoint[x];
-                        finalPoint[y] = (int) floatPoint[y];
-
-                        result.add(finalPoint);
+                        cross_X.add((int) floatPoint[x]);
+                        cross_Y.add((int) floatPoint[y]);
                     }
 
                 }
 
             }
+            // 쌍으로 내지말고 x는x y는 y로 계산
         }
 
-        return result;
+        result.add(cross_X);
+        result.add(cross_Y);
+
+        return   result;
     }
 
     // 의문 1. static 이거 밖에하면 안되는이유 찾아야됩니다

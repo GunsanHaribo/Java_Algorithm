@@ -138,7 +138,6 @@ public class 거리두기확인하기 {
 
         }
 
-
         // 사이값들의 x,y좌표를 또 적어줘야된다 여기는 1
         for(int i = 0; i<4; i++){
             int move_y = y+twoY[i];
