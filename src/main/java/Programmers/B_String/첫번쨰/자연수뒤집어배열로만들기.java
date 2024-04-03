@@ -1,4 +1,4 @@
-package Programmers.B_String;
+package Programmers.B_String.첫번쨰;
 
 import java.util.Arrays;
 
