@@ -87,6 +87,7 @@ public class 쿼드압축 {
 
         int[][] fixed_target;
 
+        // 이거 반복 처리해야됨
         if(check == false){
             int next_num =(int) pow(2,n-1);
             fixed_target = new int[next_num][next_num];
