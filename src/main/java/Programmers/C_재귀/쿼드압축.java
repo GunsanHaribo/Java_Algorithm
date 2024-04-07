@@ -7,6 +7,11 @@ import java.util.List;
 
 import static java.lang.Math.pow;
 
+
+// 배열을 새로 만들어서 넣어준 이유가 뭐지?
+// 이 흐름이 필요한 흐름인가??
+
+
 public class 쿼드압축 {
 
     static int oneCount = 0;
@@ -133,4 +138,17 @@ public class 쿼드압축 {
 
 
     }
+
+
+    // 너무 복잡함
+    // 상태 : n -> n-1  => 상자 길이, 상자가 크기가 1일 떄 종료한다
+    // 종료조건 : n = 0 일때 종료
+    // 점화식 :   f(n)=f(n-1, target1)+ f(n-1, target2)+ f(n-1, target3)+ f(n-1, target4)
+    // => 여기서 나눠서 넣어주기가 너무 어려워
+
+
+    //
+    // 상태 : 정사각형 범위, 왜 범위를?
+    // 종료조건 :
+    // 점화식 :
 }
