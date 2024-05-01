@@ -1,4 +1,4 @@
-package Programmers.E_정렬;
+package Programmers.E_정렬.두개뽑아더하기;
 
 import java.util.ArrayList;
 import java.util.Arrays;

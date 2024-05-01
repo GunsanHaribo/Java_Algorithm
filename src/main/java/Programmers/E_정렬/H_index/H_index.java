@@ -1,4 +1,4 @@
-package Programmers.E_정렬;
+package Programmers.E_정렬.H_index;
 
 import java.util.Arrays;
 
