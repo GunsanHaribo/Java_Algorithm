@@ -3,7 +3,7 @@ package Programmers.오토에버시험대비.H_동적프로그래밍.정수삼�
 
 import java.util.Arrays;
 
-public class 정수삼각형 {
+public class 정수삼각형_오답 {
 
     public static int[] mem = new int[100000001];
     static int[][] arr;
@@ -33,13 +33,15 @@ public class 정수삼각형 {
 //        sum+= arr[y][x]; // 재귀는 돌아가는
         System.out.println("x좌표 : "+x+ " y좌표: "+ y);
         System.out.println(sum);
-        // sum
+
+        sum += arr[y][x];
+
+        return sum += Math.max(triangle(x+ dx[0], y+ dy[0], sum),
+            triangle(x+ dx[1], y+ dy[1], sum));
 
 
-        // 여기서 돌려야 되는것 같은데
-        // 이건 아닌데...접근법
-        return sum +=  arr[y][x] + Math.max(triangle(x+ dx[0], y+ dy[0], sum),
-                triangle(x+ dx[1], y+ dy[1], sum));
+//        return sum +=  arr[y][x] + Math.max(triangle(x+ dx[0], y+ dy[0], sum),
+//                triangle(x+ dx[1], y+ dy[1], sum));
 
     }
 }
