@@ -40,8 +40,8 @@ public class 정수삼각형_재귀오답 {
 
 //        sum += arr[y][x];
 
-        return sum += arr[y][x] + Math.max(triangle(x+ dx[0], y+ dy[0], sum),
-            triangle(x+ dx[1], y+ dy[1], sum));
+        return sum +=  arr[y][x]+ Math.max(triangle(x+ dx[0], y+ dy[0], sum),
+                triangle(x+ dx[1], y+ dy[1], sum));
 
 
 //        return sum +=  arr[y][x] + Math.max(triangle(x+ dx[0], y+ dy[0], sum),
