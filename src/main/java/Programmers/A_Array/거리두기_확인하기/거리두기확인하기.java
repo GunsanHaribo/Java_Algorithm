@@ -1,4 +1,4 @@
-package Programmers.오토에버시험대비_구현.A_Array.거리두기_확인하기;
+package Programmers.A_Array.거리두기_확인하기;
 
 import java.util.Arrays;
 

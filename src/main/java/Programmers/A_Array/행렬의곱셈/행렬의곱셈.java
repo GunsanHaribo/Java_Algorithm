@@ -1,4 +1,4 @@
-package Programmers.오토에버시험대비_구현.A_Array.행렬의곱셈;
+package Programmers.A_Array.행렬의곱셈;
 
 import java.util.Arrays;
 

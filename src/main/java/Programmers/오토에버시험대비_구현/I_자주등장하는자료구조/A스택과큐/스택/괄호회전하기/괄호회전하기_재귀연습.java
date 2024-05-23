@@ -19,6 +19,7 @@ public class 괄호회전하기_재귀연습 {
         int c = count(sss, st, kk);
 
         // 만들고 그대로 밖는다
+        System.out.println(c);
 
     }
 

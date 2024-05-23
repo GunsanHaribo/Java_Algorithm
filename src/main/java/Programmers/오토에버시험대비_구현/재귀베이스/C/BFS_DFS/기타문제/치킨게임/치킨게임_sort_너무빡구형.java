@@ -1,4 +1,4 @@
-package Programmers.오토에버시험대비_구현.재귀베이스.C.BFS_DFS.치킨게임;
+package Programmers.오토에버시험대비_구현.재귀베이스.C.BFS_DFS.기타문제.치킨게임;
 
 // 요구사항 모든 거리의 치킨 거리의 합
 // x1, y1  -> x2, y2  => |x1- x2| + |y1 - y2|

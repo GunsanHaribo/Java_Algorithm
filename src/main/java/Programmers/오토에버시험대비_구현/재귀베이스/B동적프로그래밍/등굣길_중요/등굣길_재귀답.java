@@ -26,7 +26,7 @@ public class 등굣길_재귀답 {
         // 그러면 total이 (x,y)에 대해서 가능한경로 수를 가진다  그걸또 더해주면 되는거고
 
         // 이거 return문에 있는거랑 밖에 있는거랑 차이 날 것 같은데 => 차이 안난다
-        int total = count(x+1 ,y,w,h, isPuddle) + count(x,y+1,w,h,isPuddle);
+        int total = count(x+1 ,y,w,h, isPuddle) + count(x,y+1,w,h,isPuddle); //
 
 //        return (count(x+1 ,y,w,h, isPuddle) + count(x,y+1,w,h,isPuddle)) % 1000000007;
         return total % 1000000007;

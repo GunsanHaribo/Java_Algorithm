@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class 소수찾기2 {
+public class 소수찾기2_분석필요 {
     public static void main(String[] args) {
 
         String nums = "17";
@@ -27,10 +27,12 @@ public class 소수찾기2 {
 
     private static Set<Integer> getPrimes(int acc, List<Integer> numbers){
         if(numbers.isEmpty()){
+            System.out.println(numbers);
             if(isPrime(acc)) return Set.of(acc);
             return Set.of();
         }
 
+        // 원소를 모드 구해서
         Set<Integer> primes = new HashSet<>();
         if(isPrime(acc)) primes.add(acc);
 
@@ -39,6 +41,7 @@ public class 소수찾기2 {
         for(int i = 0; i< numbers.size(); i++){
             int nextAcc = acc*10 + numbers.get(i);
             List<Integer> nextNumbers = new ArrayList<>(numbers);
+            System.out.println(nextNumbers);
             nextNumbers.remove(i);
             primes.addAll(getPrimes(nextAcc, nextNumbers));  // addAll에서 어떻게 실행되는지?
         }

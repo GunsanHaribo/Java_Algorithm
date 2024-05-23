@@ -1,4 +1,4 @@
-package Programmers.오토에버시험대비_구현.재귀베이스.C.BFS_DFS.이분그래프;
+package Programmers.오토에버시험대비_구현.재귀베이스.C.BFS_DFS.기타문제.이분그래프;
 
 
 // 정점 끼리는 서로 인접하지 안도록 => 이분 그래프
