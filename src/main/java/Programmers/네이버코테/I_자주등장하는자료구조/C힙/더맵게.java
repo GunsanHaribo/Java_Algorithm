@@ -5,6 +5,7 @@ package Programmers.네이버코테.I_자주등장하는자료구조.C힙;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 // 흐름
 // 1. 어레이 리스트로 바꾸고 sort한다
@@ -28,6 +29,8 @@ public class 더맵게 {
 
 
         }
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b-a);
 
 
 
