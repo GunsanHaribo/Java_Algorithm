@@ -1,0 +1,26 @@
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+
+cnt = 1
+while (N>cnt):
+    N = N - cnt
+    cnt += 1
+#print(cnt, N)
+up_cnt = N-1   ==>  애는 무조건 1이 되어야하고
+
+if cnt % 2 == 0:  ==> 이게 무슨 소리지? 3-2 // N이 3일떄 cnt는 2까지오르고 2,2에서 종료된다 그러면 대각선 아래로 내려간다
+    son = 1 + up_cnt
+    mom = cnt - up_cnt
+else:
+    son = cnt - up_cnt
+    mom = 1 + up_cnt
+
+print(f"{son}/{mom}")
+
+
+
+1. 먼저 그 전 대각선 까지 카운트 한다
+2. 그 대각선의 원소가 짝수면 그 줄은 밑으로 내려간다, 홀수면 올라간다
+3. 줄이 넘어 갈떄 마다 count를 한다
