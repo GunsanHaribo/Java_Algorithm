@@ -1,4 +1,4 @@
-package Programmers.네이버코테.J_구현.프로그래머스.카카오_기출.비밀지도;
+package Programmers.네이버코테.J_구현.네이버_부스트캠프기출.Second.Recruit2018.A_비밀지도;
 
 public class 비밀지도_비트연산 {
     // or을 그냥 때려서 바로 연산한다

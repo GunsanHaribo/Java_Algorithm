@@ -56,14 +56,13 @@ public class 상품유통 {
         System.out.println(Arrays.toString(sonmom));
 
 
-
     }
 
     public static int[] remain_R(int[] sonmom, int[] tax_rate){
 
         //tax_rate 기약분수인지 확인해서 들어갈꺼임
         tax_rate = find_max_divideone(tax_rate);
-//        System.out.println(Arrays.toString(tax_rate));
+        System.out.println(Arrays.toString(tax_rate));
 
 //        System.out.println(Arrays.toString(sonmom));
         // 분수 맞춰서 빼기 -> 최소 공배수 구하기
@@ -111,27 +110,37 @@ public class 상품유통 {
         // 여기서 틀렸다  그래서 0이 나오는 듯하다
         int same_multiple = find_min_same_multiple(sonmom, R_multipletaxRate);
 //        System.out.println("분모:"+ same_multiple);
+        System.out.println("분모:"+same_multiple);
 
-        int R_mom_multiple = same_multiple/sonmom[1];
-        int tax_mom_mutiple = same_multiple/R_multipletaxRate[1];
+        int[] R_subtaxRate = new int[2];
+//        if(same_multiple!=0){
+            int R_mom_multiple = same_multiple/sonmom[1];
+            int tax_mom_mutiple = same_multiple/R_multipletaxRate[1];
 
 //        System.out.println(R_mom_multiple);
 
 
-        int  differ_R =  R_son*R_mom_multiple;
+            int differ_R =  R_son*R_mom_multiple;
 //        System.out.println(R_son*R_mom_multiple);
 //        System.out.println(differ_R);
-        int differ_T = R_multipletaxRate[0]*tax_mom_mutiple;
+            int differ_T = R_multipletaxRate[0]*tax_mom_mutiple;
 
 
 //        System.out.println(sonmom[0]*R_mom_multiple  - R_multipletaxRate[0]);
-        long final_son =  (differ_R- differ_T);
+            long final_son =  (differ_R- differ_T);
 //        System.out.println(final_son);
 //        System.out.println(same_multiple);
 
 //        System.out.println("마지막 분자:"+final_son);
-        int final_mom = (same_multiple);
-        int[] R_subtaxRate = new int[]{(int)final_son, final_mom};
+            int final_mom = (same_multiple);
+            R_subtaxRate = new int[]{(int)final_son, final_mom};
+//        }
+
+//        else{
+//            R_subtaxRate = sonmom;
+//        }
+
+//        System.out.println(Arrays.toString(R_subtaxRate));
 //        System.out.println(Arrays.toString(R_subtaxRate));
 
 
@@ -145,6 +154,9 @@ public class 상품유통 {
         int R_mom = sonmom[1];
         int R_mulitple = R_multipletaxRate[1];
 
+
+        System.out.println("tax곱한거:"+Arrays.toString(R_multipletaxRate));
+
         // 공약수 구하는 과정은 밑에 꺼랑 같을듯
         int min = Math.min(R_mom, R_mulitple);
         List<Integer> min_small = new ArrayList<>();
@@ -153,11 +165,8 @@ public class 상품유통 {
                 min_small.add(i);
             }
         }
-//        System.out.println(min_small);
 
         // 약수가 같은 숫자로 나뉠 수가 있어서
-        // 만약에 이게 계속 5라면 5만 나오겠지 근데 아니잖아
-        // 최소 공배수 구하는거 해야된다 -> 인간듣고
         List<Integer> same= new ArrayList<>();
         for(int i = 0; i<min_small.size(); i++){
             int check1 = R_mom%min_small.get(i);
@@ -169,14 +178,17 @@ public class 상품유통 {
         }
 
         // 최대 공약수 구해주는거 없나?  => null 체크도 해야되고
+
         int max_same = 1;
         if(!same.isEmpty()) {
             max_same = Collections.max(same);
         }
 
 
-
         int result  = (R_mom*R_mulitple)/max_same;
+        System.out.println(R_mom);
+        System.out.println(R_mulitple);
+        System.out.println("최소 공배수: " + result);
 
         return result;
 
@@ -187,9 +199,18 @@ public class 상품유통 {
     public static int[] find_max_divideone(int[] sonmom){
 
         // 분모가 0이면 중지
+        int max_same = 1;
         if(sonmom[1] == 0) {
+            // 둘 중 하나 0이 아니여서 틀린다
+            // 둘다 0 일 수도 있는데
             return sonmom;
+        } else if (sonmom[0] == 0) {
+            max_same = sonmom[1];
+            sonmom[0] = sonmom[0]/max_same;
+            sonmom[1] = sonmom[1]/max_same;
         }
+
+
 //        else if(sonmom[0] ==0 ){
 //            return sonmom;
 //        }
@@ -212,13 +233,17 @@ public class 상품유통 {
             }
         }
 
+
         // 최대 공약수 구해주는거 없나?  => null 체크도 해야되고
-        int max_same = 0;
+
         if(!same.isEmpty()) {
+            System.out.println("최대공약수:"+max_same);
             max_same = Collections.max(same);
             sonmom[0] = sonmom[0]/max_same;
             sonmom[1] = sonmom[1]/max_same;
         }
+
+
 
 
         return sonmom;
