@@ -42,4 +42,4 @@ bin/
 .DS_Store
 
 # ZZ_SW_ExpertAcademy 패키지 무시
-ZZ_SW_ExpertAcademy/
+**/src/main/java/ZZ_SW_ExpertAcademy/
